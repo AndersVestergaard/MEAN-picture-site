@@ -1,10 +1,13 @@
 class Index {
     static main() {
         console.log('Hello World');
-        console.log('Whoot ups91');
-        var y = "Hello6";
-        var x = "Fuck happening";
-        var ykok = "Dunno what to doo";
+        var x = "";
+        var y = "";
+        var p = "";
+        var u = "Pls fail";
+        for (var i = 0; i < 10; i++) {
+            console.log(u);
+        }
         return 0;
     }
 }

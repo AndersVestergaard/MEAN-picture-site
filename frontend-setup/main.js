@@ -1,5 +1,5 @@
-"use strict";
-console.log("main is loaded");
-const platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");
-const app_module_1 = require("../hoey-scripts/app.module");
-platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule);
+console.log("main is loaded - activate angul2ar 2 here");
+// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'; 
+// import { AppModule }              from '../hoey-scripts/app.module';
+var yoyo = 0;
+// platformBrowserDynamic().bootstrapModule(AppModule); 

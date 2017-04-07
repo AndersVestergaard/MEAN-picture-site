@@ -1,8 +1,8 @@
-console.log("main is loaded");
+console.log("main is loaded - activate angul2ar 2 here");
 
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'; 
+// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic'; 
 
-import { AppModule }              from '../hoey-scripts/app.module';
+// import { AppModule }              from '../hoey-scripts/app.module';
 
-
-platformBrowserDynamic().bootstrapModule(AppModule);
+var yoyo = 0;
+// platformBrowserDynamic().bootstrapModule(AppModule);

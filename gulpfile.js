@@ -26,24 +26,28 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(function (f) {
             return f.base;
         }))
+
+
 });
 
 var tsProject = ts.createProject('tsconfig.json');
 
 
 gulp.task('typescript', function () {
-    var tsResult = gulp.src(['hoey-scripts/**/*.ts', '*.ts', '!**/*.d.ts', '!node_modules/**'])
-        .pipe(tsProject())
-        .pipe(gulp.dest(function (f) {
-            return f.base;
-        }))
+    var tsResult =
+        gulp.src(['hoey-scripts/**/*.ts', 'frontend-setup/**/*.ts', '*.ts', '!**/*.d.ts', '!node_modules/**'])
+            .pipe(tsProject())
+            .pipe(gulp.dest(function (f) {
+                return f.base;
+            }))
+            
 });
 
-gulp.task('browser-sync', ['nodemon'], function () {
 
+gulp.task('browser-sync', ['nodemon'], function () {
     browserSync.init(null, {
         proxy: "http://localhost:3000",
-        files: ["public/**/*.*"],
+        files: ["public/**/*.*", "views/**/*.*"],
         browser: "chrome.exe",
 
         port: 7000,
@@ -51,24 +55,34 @@ gulp.task('browser-sync', ['nodemon'], function () {
 });
 
 gulp.task('nodemon', function (cb) {
-
     var started = false;
-    console.log("Hello World1");
+
+    gulp.watch(['hoey-scripts/**/*.ts'
+        , 'frontend-setup/**/*.ts', '*.ts'],
+        ['typescript']);
+
+    gulp.watch('public/stylesheets/**/*.scss', ['sass']);
+
+
+    console.log("Hello World12");
     return nodemon({
         script: 'bin/www',
         nodeArgs: ['--debug']
-    }).on('start', function () {
+    })
+        .on('start', function () {
 
-        gulp.watch('public/stylesheets/**/*.scss', ['sass']);
-        gulp.watch(['hoey-scripts/**/*.ts', '*.ts'], ['typescript']);
 
-        // to avoid nodemon being started multiple times
-        console.log("Hello World2");
-        if (!started) {
-            cb();
-            started = true;
-        }
-    });
+            // to avoid nodemon being started multiple times
+            console.log("Hello World2");
+            if (!started) {
+                cb();
+                started = true;
+            }else{
+                browserSync.reload();
+            }
+
+
+        });
 });
 
 
