@@ -1,0 +1,26 @@
+body {
+  padding: 1px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #20B7FF;
+}
+
+$padding: 6px; 
+
+nav {
+  ul {
+    margin: 0;
+    padding: $padding;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: $padding 12px;
+    text-decoration: none;
+  }
+}
