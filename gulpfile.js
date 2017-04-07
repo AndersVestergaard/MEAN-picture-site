@@ -21,7 +21,7 @@ gulp.task('start-mongo', runCommand('mongod'));
 // gulp.task('start-mongo', runCommand('mongod --dbpath ./data/'));
 
 gulp.task('sass', function () {
-    gulp.src('public/stylesheets/*.scss')
+    gulp.src('public/stylesheets/**/*.scss')
         .pipe(sass())
         .pipe(gulp.dest(function (f) {
             return f.base;
@@ -39,7 +39,7 @@ gulp.task('typescript', function () {
         }))
 });
 
-gulp.task('browser-sync', ['nodemon', 'compile-files'], function () {
+gulp.task('browser-sync', ['nodemon'], function () {
 
     browserSync.init(null, {
         proxy: "http://localhost:3000",
@@ -59,7 +59,7 @@ gulp.task('nodemon', function (cb) {
         nodeArgs: ['--debug']
     }).on('start', function () {
 
-        gulp.watch('public/stylesheets/*.scss', ['sass']);
+        gulp.watch('public/stylesheets/**/*.scss', ['sass']);
         gulp.watch(['hoey-scripts/**/*.ts', '*.ts'], ['typescript']);
 
         // to avoid nodemon being started multiple times
