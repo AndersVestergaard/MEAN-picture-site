@@ -1,27 +1,29 @@
 body {
-  padding: 1px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-
 }
 
-a {
-  color: #20B7FF;
+.video-entity{
+   overflow: hidden;
+   height:100%
 }
 
-$padding: 6px; 
-
-nav {
-  ul {
-    margin: 0;
-    padding: $padding;
-    list-style: none;
-  }
-
-  li { display: inline-block; }
-
-  a {
-    display: block;
-    padding: $padding 12px;
-    text-decoration: none;
-  }
+video {
+ 	  object-fit: cover;
+    width: 100%; 
+    height: 100%;
 }
+
+// @media (min-aspect-ratio: 16/9) {
+//   video {
+//      height: 300%;
+//     	top: -100%;
+//   }
+// }
+
+// @media (max-aspect-ratio: 16/9) {
+//   video{
+//      width: 300%;
+//     left: -100%;
+//   }
+// }
+
